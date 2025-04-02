@@ -40,7 +40,7 @@ const TaskList = () => {
 	}
 
 	return (
-		<div className={`grid grid-cols-3 max-w-10/12 self-center mx-auto ${colors.background} ${colors.text} rounded-lg`}>
+		<div className={`grid grid-cols-3 self-center mx-auto ${colors.background} ${colors.text} rounded-lg`}>
 			<TaskListHeader />
 			{tasks.map((task, index) => (
 				<>
