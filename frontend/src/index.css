@@ -7,5 +7,10 @@
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #242424;
+  background-color: #ffffff;
+}
+@theme {
+    --color-primary: #00BCD450;
+    --color-secondary: #FF704370;
+    --color-text-table: #242424;
 }

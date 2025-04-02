@@ -1,31 +1,38 @@
-import { useEffect, useState } from "react";
-import { Task } from "../../types/taskType";
+import { ReactNode, useEffect, useState } from "react";
+import { TaskType } from "../../types/taskType";
+import { Link } from "react-router-dom";
 
-const MAX_LENGTH = 30;
 const colors = {
 	text: "text-[#242424]",
 	background: "bg-[#FFC107]",
-	rowOne: "bg-[#00BCD4]",
-	rowTwo: "bg-[#FF7043]",
+	rowOne: "bg-[#00BCD450]",
+	rowTwo: "bg-[#FF704370]",
 };
-const fetchTasks = async (): Promise<Array<Task>> => {
+const fetchTasks = async (): Promise<Array<TaskType>> => {
 	const response = await fetch("http://localhost:3000/api/tasks");
 	const data = await response.json();
 	return data;
+};
+//* color rew
+const colorRow = (index: number) => (index % 2 === 0 ? "bg-primary" : "bg-secondary");
+
+//* span header
+const TaskListHeaderSpan = ({ children }: { children: ReactNode }) => {
+	return <span className={`font-bold text-lg pb-3 ${colors.background}`}>{children}</span>;
 };
 //* header list tasks
 const TaskListHeader = () => {
 	return (
 		<>
-			<span className={`font-bold text-lg mb-3 `}>Titulo</span>
-			<span className={`font-bold text-lg`}>descripcion</span>
-			<span className={`font-bold text-lg`}>fecha de creacion</span>
+			<TaskListHeaderSpan>titulo</TaskListHeaderSpan>
+			<TaskListHeaderSpan>descripcion</TaskListHeaderSpan>
+			<TaskListHeaderSpan>fecha de creacion</TaskListHeaderSpan>
 		</>
 	);
 };
 
 const TaskList = () => {
-	const [tasks, setTasks] = useState<Array<Task>>([]);
+	const [tasks, setTasks] = useState<Array<TaskType>>([]);
 
 	useEffect(() => {
 		fetchTasks().then((data) => {
@@ -40,26 +47,29 @@ const TaskList = () => {
 	}
 
 	return (
-		<div className={`grid grid-cols-3 self-center mx-auto ${colors.background} ${colors.text} rounded-lg`}>
+		<div className={`grid grid-cols-3 self-center ${colors.text} rounded-lg`}>
 			<TaskListHeader />
 			{tasks.map((task, index) => (
 				<>
-					<p
-						className={`h-7 overflow-hidden 
-						${task.title.length > MAX_LENGTH && "after:content-['...']"}
-						${index % 2 === 0 ? colors.rowOne : colors.rowTwo}`}
+					<div
 						key={task.id}
+						className={`h-7 overflow-hidden truncate 
+						${colorRow(index)}`}
 					>
-						{task.title.length > MAX_LENGTH ? task.title.slice(0, MAX_LENGTH) : task.title}
-					</p>
+						<Link to={`/task`} state={{ task }}>
+							{task.title}
+						</Link>
+					</div>
 					<p
-						className={`h-7 overflow-y-hidden 
-						${task.description?.length > MAX_LENGTH && "after:content-['...']"}
-						${index % 2 === 0 ? colors.rowOne : colors.rowTwo}`}
+						key={task.id}
+						className={`h-7 truncate
+						${colorRow(index)}`}
 					>
-						{task.description?.length > MAX_LENGTH ? task.description.slice(0, MAX_LENGTH) : task.description}
+						{task.description}
 					</p>
-					<p className={`${index % 2 === 0 ? colors.rowOne : colors.rowTwo}`}>{task.createdAt.toString()}</p>
+					<p key={task.id} className={`${colorRow(index)}`}>
+						{task.createdAt.toString()}
+					</p>
 				</>
 			))}
 		</div>
