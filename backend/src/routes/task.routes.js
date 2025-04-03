@@ -44,6 +44,8 @@ router.put("/api/tasks/:id", (req, res) => {
 
 router.delete("/api/tasks/:id", (req, res) => {
 	const { id } = req.params;
+	
+	
 	const stmt = db.prepare("DELETE FROM tasks WHERE id = ?");
 	const result = stmt.run(id);
 
