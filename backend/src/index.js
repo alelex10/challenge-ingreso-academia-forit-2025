@@ -1,15 +1,16 @@
+import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-import { PORT } from "./config.js";
 import taskRoutes from "./routes/task.routes.js";
-import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
 
+export const PORT = process.env.PORT;
+
 const corsOptions = {
-	origin: process.env.REACT_APP_CLIENT_URL, // Reemplaza con la URL de tu frontend
+	origin: process.env.FRONTEND_URL, // Reemplaza con la URL de tu frontend
 };
 
 app.use(cors(corsOptions)); // Usa cors con las opciones configuradas
