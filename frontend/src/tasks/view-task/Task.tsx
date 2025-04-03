@@ -1,6 +1,6 @@
 import { TaskType } from "../../types/taskType";
 import { formatDate } from "../../utils/date-formater";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export const Task = () => {
 	const task: TaskType = useLocation().state.task;
@@ -8,6 +8,9 @@ export const Task = () => {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
 			<div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
+				<Link to="/" className="text-blue-500 hover:text-blue-700 mb-4 inline-block">
+					&larr; Back to Home
+				</Link>
 				<h2 className="text-2xl font-semibold mb-4 text-gray-800">{task.title}</h2>
 				<div className="mb-4">
 					<p className="text-gray-700 leading-relaxed">{task.description}</p>

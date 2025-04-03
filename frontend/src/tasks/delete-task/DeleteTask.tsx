@@ -27,7 +27,7 @@ export const DeleteTask = () => {
 				<div className="flex justify-between">
 					<span className="text-sm text-gray-500">Estado: {task.completed ? "Completado" : "Pendiente"}</span>
 				</div>
-				<div className="mt-6 flex justify-end">
+				<div className="mt-6 flex justify-center">
 					<button
 						onClick={() => {
 							fetchDeleteTask(task.id!);
