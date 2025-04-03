@@ -82,8 +82,6 @@ Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
 
 Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
 
-*   **Modo de desarrollo (con reinicio automático):**
-
     ```bash
     npm run dev
     ```
