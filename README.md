@@ -22,7 +22,6 @@ Challenge de gestion de tareas para ingreso a academia **ForIT**
 ## Instalación
 
 1.  Asegúrate de tener Node.js y npm (o yarn) instalados en tu sistema. Puedes descargarlos desde [nodejs.org(https://nodejs.org/)].
-1.  Asegúrate de tener Node.js y npm (o yarn) instalados en tu sistema. Puedes descargarlos desde [nodejs.org(https://nodejs.org/).
 
 2.  Clona este repositorio:
 
