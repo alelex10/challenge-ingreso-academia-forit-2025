@@ -74,16 +74,16 @@ Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
 
 4.  Instala las dependencias:
 
-*   **Modo de desarrollo:**
-
     ```bash
-    npm run dev
+    npm install
     ```
 
 ## Ejecución
 
 Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
-* 
+
+*   **Modo de desarrollo :**
+
     ```bash
     npm run dev
     ```
