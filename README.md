@@ -45,7 +45,7 @@ Challenge de gestion de tareas para ingreso a academia **ForIT**
 
 Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
 
-*   **Modo de desarrollo (con reinicio automático):**
+*   **Modo de desarrollo :**
 
     ```bash
     npm run dev
@@ -74,14 +74,16 @@ Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
 
 4.  Instala las dependencias:
 
+*   **Modo de desarrollo:**
+
     ```bash
-    npm install
+    npm run dev
     ```
 
 ## Ejecución
 
 Para ejecutar la aplicación localmente, utiliza uno de los siguientes comandos:
-
+* 
     ```bash
     npm run dev
     ```
